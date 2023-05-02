@@ -1,9 +1,20 @@
-let start = 0
+let start = 1
 let code = 0
-input.onButtonPressed(Button.AB, function () {
-    start = 0
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.A) || (input.buttonIsPressed(Button.B) || input.logoIsPressed())) {
+        start = 0
+    }
 })
 basic.forever(function () {
-    start = 1
-    code = 0
+    if (start == 1) {
+        basic.showString("C")
+    } else {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+    }
 })
