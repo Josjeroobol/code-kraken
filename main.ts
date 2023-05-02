@@ -6,15 +6,21 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
+    if (code == 1) {
+        basic.showLeds(`
+            # . . . .
+            # . . . .
+            # . . . .
+            # . . . .
+            # . . . .
+            `)
+    }
+})
+basic.forever(function () {
     if (start == 1) {
         basic.showString("C")
-    } else {
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
+    }
+    if (code == 0 && input.buttonIsPressed(Button.A)) {
+        code = 1
     }
 })
