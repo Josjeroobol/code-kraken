@@ -6,6 +6,9 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
+    if (code == 0) {
+        basic.showString("C")
+    }
     if (code == 1) {
         basic.showLeds(`
             # . . . .
@@ -15,12 +18,21 @@ basic.forever(function () {
             # . . . .
             `)
     }
+    if (code == 2) {
+        basic.showLeds(`
+            # # . . .
+            # # . . .
+            # # . . .
+            # # . . .
+            # # . . .
+            `)
+    }
 })
 basic.forever(function () {
-    if (start == 1) {
-        basic.showString("C")
-    }
     if (code == 0 && input.buttonIsPressed(Button.A)) {
         code = 1
+    }
+    if (code == 1 && input.buttonIsPressed(Button.B)) {
+        code = 2
     }
 })
